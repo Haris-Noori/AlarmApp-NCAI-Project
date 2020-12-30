@@ -44,6 +44,14 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
                 cancelAlarm();
             }
         });
+
+        Button openBluetoothButton = findViewById(R.id.openBluetoothButton);
+        openBluetoothButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBluetoothActivity();
+            }
+        });
     }
 
     @Override
@@ -94,6 +102,11 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
         alarmManager.cancel(pendingIntent);
         mTextView.setText("Alarm canceled");
+    }
+
+    public void openBluetoothActivity(){
+        Intent intent = new Intent(this, Bluetooth.class);
+        startActivity(intent);
     }
 
 }
